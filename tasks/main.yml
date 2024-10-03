@@ -121,6 +121,12 @@
   notify:
     - Restart Mosquitto
 
+- name: Make sure dhparam file exists
+  command: "openssl dhparam -out {{ mosquitto_dhparam_file }} {{ mosquitto_dhparam_keysize }}"
+  args:
+    creates: "{{ mosquitto_dhparam_file }}"
+  when: mosquitto_certificates
+
 - name: Configure Mosquitto
   ansible.builtin.template:
     src: mosquitto.conf.j2

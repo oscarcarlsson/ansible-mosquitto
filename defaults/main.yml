@@ -3,6 +3,7 @@
 mosquitto_packages:
   - mosquitto
   - mosquitto-clients
+  - openssl
 
 mosquitto_python_packages:
   - paho-mqtt
@@ -35,6 +36,8 @@ mosquitto_config_file: /etc/mosquitto/mosquitto.conf
 
 # { name: "certfile", path: "/etc/mosquitto/certs/test.crt", content: "foo" }
 mosquitto_certificates: {}
+mosquitto_dhparam_file: /etc/mosquitto/dhparam.pem
+mosquitto_dhparam_keysize: 2048
 
 mosquitto_config: {}
 
