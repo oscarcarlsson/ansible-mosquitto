@@ -102,6 +102,38 @@ Examples:
 
 Lists holding Mosquitto ACLs.
 
+    mosquitto_certificates: {}
+
+Dictionary holding certificate configuration.
+
+Example:
+
+    mosquitto_certificates:
+     - name: "cert"
+       path: "/etc/mosquitto/certs/mosquitto.crt"
+       content: |
+         -----BEGIN CERTIFICATE-----
+         -----END CERTIFICATE-----
+
+     - name: "key"
+       path: "/etc/mosquitto/certs/mosquitto.key"
+       content: |
+         -----BEGIN PRIVATE KEY-----
+         -----END CERTIFICATE-----
+
+     - name: "ca"
+       path: "/etc/mosquitto/certs/ca.crt"
+       content: |
+         -----BEGIN CERTIFICATE-----
+         -----END CERTIFICATE-----
+
+Configuration for a custom dhparam file for mosquitto, will be
+generated if it doesn't exist.
+
+    mosquitto_dhparam_file: /etc/mosquitto/dhparam.pem
+    mosquitto_dhparam_keysize: 2048
+
+
 Dependencies
 ------------
 
