@@ -127,6 +127,15 @@
     creates: "{{ mosquitto_dhparam_file }}"
   when: mosquitto_certificates
 
+- name: Ensure correct ownership of dhparam
+  ansible.builtin.file:
+    path: "{{ mosquitto_dhparam_file }}"
+    state: file
+    owner: "{{ mosquitto_user }}"
+    group: "{{ mosquitto_group }}"
+    mode: "0700"
+  when: mosquitto_certificates
+
 - name: Configure Mosquitto
   ansible.builtin.template:
     src: mosquitto.conf.j2
